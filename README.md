@@ -7,4 +7,5 @@ TODO split into:
 .bash-options 
 .bash-aliases 
 .bash-functions
+basic error correction
 OR cron job
