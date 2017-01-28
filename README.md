@@ -1,3 +1,7 @@
 # bash_aliases
 Auto updating BASH Preferences
-README
+
+TODO split into:
+.bash-options 
+.bash-aliases 
+.bash-functions
