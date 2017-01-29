@@ -7,5 +7,6 @@ TODO split into:
 * .bash-options 
 * .bash-aliases 
 * .bash-functions
+
 OR cron job
 * only makes sense for servers
