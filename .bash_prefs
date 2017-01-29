@@ -108,7 +108,8 @@ PROMPT_COMMAND="prompt"
 # ssh -v -l username -p port ip_address
 # scp -p PORT
 #-------------------------------------------------
-alias taz='ssh -l jeff -p 22 192.168.1.10'
+alias taz='ssh -l admin -p 22 192.168.1.10'
+alias nailah='ssh -l root -p 22 192.168.1.12'
 alias pc-nick-wol='wakeonlan 00:13:72:0F:F1:C1'
  
 #-------------------------------------------------
