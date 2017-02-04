@@ -155,7 +155,7 @@ alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
  
 # sudo -> su
-alias su='/usr/bin/sudo -i'
+alias su='/usr/bin/sudo -s'
  
 # apt
 ## sudo
