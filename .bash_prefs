@@ -185,7 +185,10 @@ alias distro='lsb_release -a'
 
 # external ip
 alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
- 
+
+# weather /zip
+alias wx='curl "wttr.in/06437"'
+
 #=================================================
 # Unused
 #=================================================
