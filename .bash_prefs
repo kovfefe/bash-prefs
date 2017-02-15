@@ -224,4 +224,4 @@ extract () {
 }
 
 # backup file before editing
-bup () { cp -a "$1{,.ORG}" }
+bup () { cp -a "$1"'{,.ORG}' }
