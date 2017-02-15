@@ -186,8 +186,10 @@ alias distro='lsb_release -a'
 # external ip
 alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# weather /zip
-alias wx='curl "wttr.in/06437"'
+# weather & moon phase
+# https://github.com/chubin/wttr.in http://wttr.in/:help
+alias wx='curl "http://wttr.in/06437"'
+alias moon='curl "http://wttr.in/moon"'
 
 #=================================================
 # Unused
