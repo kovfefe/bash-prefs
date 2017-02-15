@@ -201,6 +201,9 @@ alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
 # Functions
 #=================================================
 
+# backup file
+bup() { cp -a "$1" "$1.`date +%s`.ORG"; }
+
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
   if [ -f $1 ] ; then
