@@ -28,8 +28,8 @@ shopt -s nullglob
 #=================================================
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=50000
-export HISTFILESIZE=50000
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 export HISTCONTROL=ignoreboth # ignoredups & ignorespace
 export HISTIGNORE="&:ls:bg:fg"
 export EDITOR="/usr/bin/vim"
@@ -47,12 +47,12 @@ export LANGUAGE=en_US.UTF-8
 # directories
 www='/var/www/html'
 doku='/var/www/html/dokuwiki'
-dls='/home/jeff/Downloads'
-docs='/home/jeff/Documents'
-pics='/home/jeff/Pictures'
-pub='/home/jeff/Public'
-tunes='/mnt/jeff/Music'
-movies='/mnt/jeff/Movies'
+dls='~/Downloads'
+docs='~/Documents'
+pics='~/Pictures'
+pub='~/Public'
+tunes='/mnt/Music'
+movies='/mnt/Movies'
  
 # ANSI colors
 BLK='\e[0;30m'
@@ -108,9 +108,8 @@ PROMPT_COMMAND="prompt"
 # ssh -v -l username -p port ip_address
 # scp -p PORT
 #-------------------------------------------------
-alias taz='ssh -l admin -p 22 192.168.1.10'
-alias nailah='ssh -l root -p 22 192.168.1.12'
-alias pc-nick-wol='wakeonlan 00:13:72:0F:F1:C1'
+alias taz='ssh -l admin -p 22 TAZ'
+alias nailah='ssh -l root -p 22 NAILAH'
  
 #-------------------------------------------------
 # Modified Commands
@@ -121,19 +120,12 @@ alias hg='history -a;history -n;history | grep'
 alias psa='ps auwx'
 alias cp='cp -p'
 alias man='man -a'
-alias cb='cd -' #cd back
-alias untar='tar xvzf'
 alias ping='ping -c 10'
 alias openports='netstat -nape --inet'
-alias lm='ls | more'
-alias llm='ls -l | more'
-alias term='xterm -bg Black -fg Green &'
 alias ss='xwd -root | convert xwd:- ~/screenshot.png' # depends imagemagick
 alias ws='xwd -frame | convert xwd:- ~/windowshot.png' # depends imagemagick
 alias clip='xclip -in -selection c $1' # input to clipboard use xclip
 alias clop='xclip -out -selection c $1' # output from clipboard use xclip
-# kdelogout ref:http://www.daemonforums.org/showthread.php?t=2916#post21688
-# alias kdelogout='qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout 0 0 0'
  
 # grep ignore case & color
 alias egrep='egrep -i --color=auto'
@@ -187,11 +179,12 @@ alias more='less'
  
 # clear screen
 alias cls='clear;uname -a;echo;lsb_release -ds;echo;date "+[ %F %A %r %Z ]";echo;fortune;echo'
+
 alias md='mkdir'
 alias distro='lsb_release -a'
  
 # external ip
-alias extip='curl http://ipecho.net/plain'
+alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
  
 #=================================================
 # Unused
@@ -203,12 +196,6 @@ alias extip='curl http://ipecho.net/plain'
 # alias md5sum='digest -va md5'
 # alias sha1sum='digest -va sha1'
 # alias psa='ps -ef'
- 
-#-------------------------------------------------
-# Linux
-#-------------------------------------------------
-# alias clip='xsel --clipboard < $1' # input to clipboard use xsel
-# alias clop='xsel --clipboard > $1' # output from clipboard use xsel
  
 #=================================================
 # Functions
@@ -236,70 +223,5 @@ extract () {
   fi
 }
 
-# backup files before editing
-bu () { cp $1 ~/.backup/`basename $1`-`date +%Y%m%d%H%M`.backup ; }
- 
-# search for installed package or list all
-lspkgs () { dpkg --get-selections "*$1*" ; }
- 
-# weather METAR current $1=station (default KHVN)
-wx() {
-  stn=`echo "$1" | tr "[:lower:]" "[:upper:]"`
-  [ -z "$stn" ] && stn="KHVN"
-  wget -q -O - "http://weather.noaa.gov/pub/data/observations/metar/decoded/${stn}.TXT"
-}
- 
-# is package installed?
-isinst() {
-  dpkg -s "$1" 2>&- | grep -q "Status" && echo "$1 installed." || echo "$1 not installed."
-}
- 
-# http://www.geocities.com/h2428/petar/bash_acd.htm
-#
-# do ". acd_func.sh"
-# acd_func 1.0.5, 10-nov-2004
-# petar marinov, http:/geocities.com/h2428, this is public domain
-cd_func ()
-{
-local x2 the_new_dir adir index
-local -i cnt
-if [[ $1 == "--" ]]; then
-dirs -v
-return 0
-fi
-the_new_dir=$1
-[[ -z $1 ]] && the_new_dir=$HOME
-if [[ ${the_new_dir:0:1} == '-' ]]; then
-#
-# Extract dir N from dirs
-index=${the_new_dir:1}
-[[ -z $index ]] && index=1
-adir=$(dirs +$index)
-[[ -z $adir ]] && return 1
-the_new_dir=$adir
-fi
-#
-# '~' has to be substituted by ${HOME}
-[[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
-#
-# Now change to the new dir and add to the top of the stack
-pushd "${the_new_dir}" > /dev/null
-[[ $? -ne 0 ]] && return 1
-the_new_dir=$(pwd)
-#
-# Trim down everything beyond 11th entry
-popd -n +11 2>/dev/null 1>/dev/null
-#
-# Remove any other occurence of this dir, skipping the top of the stack
-for ((cnt=1; cnt <= 10; cnt++)); do
-x2=$(dirs +${cnt} 2>/dev/null)
-[[ $? -ne 0 ]] && return 0
-[[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
-if [[ "${x2}" == "${the_new_dir}" ]]; then
-popd -n +$cnt 2>/dev/null 1>/dev/null
-cnt=cnt-1
-fi
-done
-return 0
-}
-alias cd=cd_func
+# backup file before editing
+bup () { cp -a "$1{,.ORG}" }
