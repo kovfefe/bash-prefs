@@ -182,7 +182,10 @@ alias cls='clear;uname -a;echo;lsb_release -ds;echo;date "+[ %F %A %r %Z ]";echo
 
 alias md='mkdir'
 alias distro='lsb_release -a'
- 
+
+# backup file before editing
+alias bup='cp -a $1{,.ORG}'
+
 # external ip
 alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
  
@@ -222,6 +225,3 @@ extract () {
     echo "'$1' is not a valid file!"
   fi
 }
-
-# backup file before editing
-bup () { cp -a "$1"'{,.ORG}' }
