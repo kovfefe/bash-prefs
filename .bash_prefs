@@ -30,7 +30,7 @@ shopt -s nullglob
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export HISTCONTROL=ignoreboth # ignoredups & ignorespace
+export HISTCONTROL="ignorespace:erasedups"
 export HISTIGNORE="&:ls:bg:fg"
 export EDITOR="/usr/bin/vim"
 export VISUAL="/usr/bin/vim"
@@ -208,6 +208,20 @@ alias moon='curl "http://wttr.in/moon"'
 
 # backup file
 bup() { cp -a "$1" "$1.`date +%s`.ORG"; }
+
+# erase sensitive info fr/history
+rmhist() {
+  [ "$1" = "" ] && { echo "Must specify a pattern!"; return 1; }
+  i=`history | grep -c "$1"`
+  [ "$i" -eq 1 ] && { echo "No matches found!"; history -d $((HISTCMD-1)); return 0; }
+  echo -n "Found $i matches. Removing entry #'s: "
+  until [ "$i" -eq 0 ]; do
+    n=`history | grep -m 1 "$1" | awk '{print $1}'`
+    history -d "$n"
+    echo -n "$n "
+    ((--i))
+  done
+}
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
