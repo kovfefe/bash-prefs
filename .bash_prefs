@@ -186,6 +186,10 @@ alias distro='lsb_release -a'
 # external ip
 alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
 
+# pyTivo
+alias pytivo-start='/usr/bin/python ~/bin/pytivo/pyTivo.py &'
+alias pytivo-stop='pkill -SIGINT -f ~/bin/pytivo/pyTivo.py'
+
 # weather & moon phase
 # https://github.com/chubin/wttr.in http://wttr.in/:help
 alias wx='curl "http://wttr.in/06437"'
