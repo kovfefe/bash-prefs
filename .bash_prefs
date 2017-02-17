@@ -186,7 +186,7 @@ alias distro='lsb_release -a'
 # external ip
 alias extip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# pyTivo
+# pyTivo - USE screen and/or web interface :9032
 alias pytivo-start='/usr/bin/python ~/bin/pytivo/pyTivo.py &'
 alias pytivo-stop='pkill -SIGINT -f ~/bin/pytivo/pyTivo.py'
 
