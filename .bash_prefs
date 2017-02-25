@@ -110,6 +110,7 @@ PROMPT_COMMAND="prompt"
 #-------------------------------------------------
 alias taz='ssh -l admin -p 22 TAZ'
 alias nailah='ssh -l root -p 22 NAILAH'
+alias maisie='ssh -l root -p 22 MAISIE'
  
 #-------------------------------------------------
 # Modified Commands
