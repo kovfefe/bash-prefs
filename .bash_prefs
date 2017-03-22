@@ -214,7 +214,8 @@ alias moon='curl "http://wttr.in/moon"'
 # backup file
 bup() { cp -a "$1" "$1.`date +%s`.ORG"; }
 
-# decrypt encryption set with dokuwiki plugin encrypted passwords
+# encrypt/decrypt strings compatible w/dokuwiki plugin encrypted passwords
+encrypt() { echo "$1" | openssl aes-256-cbc -e | openssl base64 -e; }
 decrypt() { echo "$1" | openssl base64 -d | openssl aes-256-cbc -d; }
 
 # erase sensitive info fr/history
