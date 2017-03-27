@@ -166,7 +166,7 @@ alias su='/usr/bin/sudo -s'
 alias upd='apt update'
 alias upg='apt update && apt upgrade'
 alias upgd='apt update && apt full-upgrade'
-alias pkgcln='dpkg --configure -a && apt install -f && apt autoremove -y && apt autoclean -y && apt clean'
+alias pkgcln='dpkg --configure -a && apt-get install -f && apt-get autoremove -y && apt-get autoclean -y && apt-get clean'
  
 # rm interactive
 alias rm='rm -i'
