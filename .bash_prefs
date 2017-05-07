@@ -196,6 +196,9 @@ alias pytivo-stop='pkill -SIGINT -f ~/bin/pytivo/pyTivo.py'
 alias wx='curl "http://wttr.in/06437"'
 alias moon='curl "http://wttr.in/moon"'
 
+# restart plasma
+alias r='kquitapp5 plasmashell && kstart plasmashell'
+
 #=================================================
 # Unused
 #=================================================
