@@ -175,7 +175,7 @@ alias dd='dd status=progress'
 alias rm='rm -i'
 
 # ifconfig deprecated (net-tools) -> ip as reminder
-alias ifconfig='echo "Deprecated: use ip"; ip a'
+alias ifconfig='echo -e "\n** Deprecated: use ip **\n"; ip a'
 
 # diskspace free/used human readable
 alias df='df -h'
