@@ -173,7 +173,10 @@ alias dd='dd status=progress'
 
 # rm interactive
 alias rm='rm -i'
- 
+
+# ifconfig deprecated (net-tools) -> ip as reminder
+alias ifconfig='ip a'
+
 # diskspace free/used human readable
 alias df='df -h'
 alias du='du -h'
