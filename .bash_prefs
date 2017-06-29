@@ -203,7 +203,7 @@ alias wx='curl "http://wttr.in/06437"'
 alias moon='curl "http://wttr.in/moon"'
 
 # restart plasma
-alias r='kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
+alias r='echo "Restarting Plasma..."; kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
 
 #=================================================
 # Unused
