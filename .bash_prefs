@@ -146,7 +146,9 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
- 
+
+alias kdesu='kdesudo'
+
 # sudo -> su
 # alias su='/usr/bin/sudo -s'
  
