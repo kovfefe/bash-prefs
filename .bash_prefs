@@ -149,6 +149,7 @@ alias ..5='cd ../../../../..'
 
 alias kdesu='kdesudo'
 alias avconv='ffmpeg'
+alias neofetch='neofetch --ascii_distro Kubuntu'
 
 # sudo -> su
 # alias su='/usr/bin/sudo -s'
