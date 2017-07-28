@@ -4,8 +4,6 @@
 # Modified:     2017-02-15
 # Comment:      \alias to override
 ##################################################
-# FIXME aliases w/$1 -> functions
-##################################################
  
 #=================================================
 # Shell Options
@@ -226,6 +224,9 @@ alias r='echo "Restarting Plasma..."; kquitapp5 plasmashell && kstart5 plasmashe
 
 # backup file
 bup() { cp -a "$1" "$1.`date +%s`.ORG"; }
+
+resize /tmp tmpfs
+rsz-tmp() { sudo mount -o remount,size="$1",noatime /tmp; }
 
 # encrypt/decrypt strings compatible w/dokuwiki plugin encrypted passwords
 encrypt() { echo "$1" | openssl aes-256-cbc -e | openssl base64 -e; }
