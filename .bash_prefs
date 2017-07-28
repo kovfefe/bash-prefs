@@ -225,7 +225,7 @@ alias r='echo "Restarting Plasma..."; kquitapp5 plasmashell && kstart5 plasmashe
 # backup file
 bup() { cp -a "$1" "$1.`date +%s`.ORG"; }
 
-resize /tmp tmpfs
+# resize /tmp tmpfs
 rsz-tmp() { sudo mount -o remount,size="$1",noatime /tmp; }
 
 # encrypt/decrypt strings compatible w/dokuwiki plugin encrypted passwords
