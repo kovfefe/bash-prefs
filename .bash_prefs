@@ -149,6 +149,10 @@ alias kdesu='kdesudo'
 alias avconv='ffmpeg'
 alias neofetch='neofetch --ascii_distro Kubuntu'
 
+alias locate='locate -i'
+alias gunzip='gunzip -k'
+alias bunzip2='bunzip2 -k'
+
 # sudo -> su
 # alias su='/usr/bin/sudo -s'
  
