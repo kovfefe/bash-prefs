@@ -267,3 +267,6 @@ extract () {
     echo "'$1' is not a valid file!"
   fi
 }
+
+# yakuake b/g blur
+yakuake=$(xdotool search --class yakuake); for id in $yakuake; do xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $id; done
