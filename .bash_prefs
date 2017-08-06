@@ -147,7 +147,6 @@ alias ..5='cd ../../../../..'
 
 alias kdesu='kdesudo'
 alias avconv='ffmpeg'
-alias neofetch='neofetch --ascii_distro Kubuntu'
 
 alias locate='locate -i'
 alias gunzip='gunzip -k'
