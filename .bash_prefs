@@ -209,6 +209,8 @@ alias moon='curl "http://wttr.in/moon"'
 
 # restart plasma
 alias r='echo "Restarting Plasma..."; kquitapp5 plasmashell && kstart5 plasmashell > /dev/null 2>&1'
+# logout self
+alias lout='loginctl terminate-user `whoami`'
 
 #=================================================
 # Unused
