@@ -212,6 +212,9 @@ alias r='echo "Restarting Plasma..."; kquitapp5 plasmashell && kstart5 plasmashe
 # logout self
 alias lout='loginctl terminate-user `whoami`'
 
+# wrong command executed
+alias fix='`!!:$`'
+
 #=================================================
 # Unused
 #=================================================
@@ -274,4 +277,9 @@ extract () {
 }
 
 # yakuake b/g blur
-yakuake=$(xdotool search --class yakuake); for id in $yakuake; do xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $id; done
+if [ "$DISPLAY"x != x -a -x /usr/bin/xdotool ]; then
+  yakuake=$(xdotool search --class yakuake)
+  for id in $yakuake; do
+    xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $id
+  done
+fi
