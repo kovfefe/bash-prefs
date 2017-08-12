@@ -44,13 +44,13 @@ export LANGUAGE=en_US.UTF-8
  
 # directories
 www='/var/www/html'
-doku='/var/www/html/dokuwiki'
+dw='/var/www/html/wiki.sacco.me/dokuwiki'
 dls='~/Downloads'
 docs='~/Documents'
 pics='~/Pictures'
 pub='~/Public'
-tunes='/mnt/Music'
-movies='/mnt/Movies'
+tunes='~/Music'
+movies='~/Videos'
  
 # ANSI colors
 BLK='\e[0;30m'
